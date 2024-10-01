@@ -3,59 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boxy Design - Vastgoedbeheer</title>
+    <title>Boxydesign AV Quorum en Stemming</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#diensten">Diensten</a></li>
-                <li><a href="#over-ons">Over Ons</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <h1>Boxy Design</h1>
-        <p>Jouw partner in freelance vastgoedbeheer en waardebepaling</p>
-        <a href="#contact" class="cta-button">Neem contact op</a>
-    </header>
-
-    <section id="diensten">
-        <h2>Onze Diensten</h2>
-        <div class="service">
-            <h3>Waardebepaling op basis van DCF Methode</h3>
-            <p>Gedetailleerde analyse van vastgoedwaarden op basis van toekomstige kasstromen.</p>
+    <div class="container">
+        <h1>Boxydesign Algemene Vergadering</h1>
+        
+        <div class="input-section">
+            <input type="file" id="file-upload" accept=".csv">
+            <button onclick="processFile()">Verwerk Bestand</button>
         </div>
-        <div class="service">
-            <h3>Rendementsstudie</h3>
-            <p>Beoordeel de opbrengst van jouw investering met onze diepgaande rendementsstudies.</p>
+        
+        <div class="attendance-section">
+            <h2>Markeer Aanwezige Eigenaren</h2>
+            <table id="owner-table">
+                <thead>
+                    <tr>
+                        <th>Apartement</th>
+                        <th>Naam</th>
+                        <th>Aandelen</th>
+                        <th>Aanwezig</th>
+                    </tr>
+                </thead>
+                <tbody id="owner-list"></tbody>
+            </table>
+            <button class="calculate-button" onclick="calculateQuorum()">👉 Bereken Quorum</button>
         </div>
-    </section>
-
-    <section id="over-ons">
-        <h2>Over Ons</h2>
-        <p>Met jarenlange ervaring in vastgoedbeheer bieden wij maatwerkoplossingen aan particulieren en investeerders.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contacteer Ons</h2>
-        <p>Heb je vragen of wil je meer informatie? Vul het formulier hieronder in en wij nemen zo snel mogelijk contact met je op.</p>
-        <form>
-            <label for="name">Naam:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Bericht:</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit">Verstuur</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Boxy Design. Alle rechten voorbehouden.</p>
-    </footer>
+        
+        <div class="building-info">
+            <h2>Gegevens Gebouw</h2>
+            <p>Aantal Eigenaars: <span id="total-owners">0</span></p>
+            <p>Totaal Aantal Aandelen: <span id="total-shares">0</span></p>
+        </div>
+        
+        <div class="result-section">
+            <h2>Resultaten</h2>
+            <p id="quorum-results"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
